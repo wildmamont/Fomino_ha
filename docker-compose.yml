@@ -1,0 +1,21 @@
+version: '3'
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: "homeassistant/raspberrypi3-homeassistant:2022.4.0"
+    volumes:
+      - /home/homeassistant/.homeassistant:/config
+    environment:
+      - TZ=Europe/Moscow
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce
+    ports:
+      - "9000:9000"
+    volumes:
+      - /home/homeassistant/portainer:/data
+      - /var/run/docker.sock:/var/run/docker.sock
