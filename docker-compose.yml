@@ -19,3 +19,18 @@ services:
     volumes:
       - /home/homeassistant/portainer:/data
       - /var/run/docker.sock:/var/run/docker.sock
+    network_mode: "host"
+
+  eclipse-mosquitto:
+    container_name: mosquitto 
+    image: "eclipse-mosquitto:2.0.14"
+    volumes:
+      - /home/homeassistant/mosquitto/config:/mosquitto/config
+      - /home/homeassistant/mosquitto/data:/mosquitto/data
+      - /home/homeassistant/mosquitto/log:/mosquitto/log 
+    network_mode: "host"
+    ports:
+      - 1883:1883
+      - 9001:9001
+    environment:
+      - TZ=Europe/Moscow

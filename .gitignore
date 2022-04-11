@@ -16,7 +16,8 @@ home-assistant_v2.db*
 home-assistant.log*
 set_fomino_llt.sh
 set_vishnya_llt.sh
-bao_snapshot.jpg
+# bao_snapshot.jpg images
+*_snapshot.jpg
 vstarcam_snapshot.jpg
 
 sensors
