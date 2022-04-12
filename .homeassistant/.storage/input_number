@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "key": "input_number",
+    "data": {
+        "items": [
+            {
+                "min": 0.0,
+                "max": 25.0,
+                "name": "cellar_daytime_temperature",
+                "step": 1.0,
+                "unit_of_measurement": "\u00b0C",
+                "mode": "slider",
+                "id": "cellar_daytime_temperature"
+            },
+            {
+                "min": 0.0,
+                "max": 20.0,
+                "name": "cellar_nighttime_temperature",
+                "unit_of_measurement": "\u00b0C",
+                "step": 1.0,
+                "mode": "slider",
+                "id": "cellar_nighttime_temperature"
+            }
+        ]
+    }
+}

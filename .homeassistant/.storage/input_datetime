@@ -1,0 +1,20 @@
+{
+    "version": 1,
+    "key": "input_datetime",
+    "data": {
+        "items": [
+            {
+                "has_time": true,
+                "has_date": false,
+                "name": "cellar_day_on_time",
+                "id": "cellar_day_on_time"
+            },
+            {
+                "has_time": true,
+                "has_date": false,
+                "name": "cellar_night_on_time",
+                "id": "cellar_night_on_time"
+            }
+        ]
+    }
+}

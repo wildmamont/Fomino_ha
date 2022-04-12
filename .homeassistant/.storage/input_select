@@ -1,0 +1,16 @@
+{
+    "version": 1,
+    "key": "input_select",
+    "data": {
+        "items": [
+            {
+                "name": "cellar_ts_mode",
+                "options": [
+                    "On",
+                    "Off"
+                ],
+                "id": "cellar_ts_mode"
+            }
+        ]
+    }
+}
