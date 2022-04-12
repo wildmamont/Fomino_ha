@@ -12,4 +12,56 @@
 #    data: {}
   - service: shell_command.get_boa_snapshot
     data: {}
+  - service: shell_command.get_vstarcam_snapshot
+    data: {}
+  mode: single
+- id: '1610368227923'
+  alias: Вечернее изменение температуры
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{{ states(''sensor.time'') == (states.input_datetime.cellar_night_on_time.state[0:5])
+      }}'
+  condition:
+  - condition: state
+    entity_id: input_boolean.cellar_day_night_automation
+    state: 'on'
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: '{{ states(''input_number.cellar_nighttime_temperature'') }}'
+    entity_id: climate.cellar
+  mode: single
+- id: '1610368478188'
+  alias: Утреннее изменение температуры
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{{ states(''sensor.time'') == (states.input_datetime.cellar_day_on_time.state[0:5])
+      }}'
+  condition:
+  - condition: state
+    entity_id: input_boolean.cellar_day_night_automation
+    state: 'on'
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: '{{ states(''input_number.cellar_daytime_temperature'') }}'
+    entity_id: climate.cellar
+  mode: single
+- id: '1610994751360'
+  alias: Автоматически рассылать SMS
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.hilink_sms_count
+    attribute: LocalUnread
+    for: 00:03:30
+  condition:
+  - condition: state
+    entity_id: sensor.hilink_sms_smstat
+    state: '0'
+  action:
+  - service: script.public_sms
+    data: {}
   mode: single

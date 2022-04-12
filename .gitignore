@@ -1,6 +1,11 @@
+
 !*.yaml
 !.gitignore
 !*.md
+!.storage/input_boolean
+!.storage/input_datetime
+!.storage/input_number
+!.storage/input_select
 
 # Ignore folders.
 .storage
@@ -19,6 +24,7 @@ set_vishnya_llt.sh
 # bao_snapshot.jpg images
 *_snapshot.jpg
 vstarcam_snapshot.jpg
+video-livestream.h264
 
 sensors
 

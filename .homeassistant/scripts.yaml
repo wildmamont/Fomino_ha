@@ -1,0 +1,24 @@
+read_sms:
+  alias: Read SMS
+  sequence:
+  - service: rest_command.telegram_send_message
+    data:
+      chat_id: 51527842
+  mode: single
+read_sms_mark:
+  alias: Read SMS Mark
+  sequence:
+  - service: rest_command.sms_mark_read
+    data:
+      sms_index: '{{states.sensor.hilink_sms_list.attributes["Index"]}}'
+  mode: single
+public_sms:
+  alias: Public SMS
+  sequence:
+  - service: rest_command.telegram_send_message
+    data:
+      chat_id: 51527842
+  - service: rest_command.sms_mark_read
+    data:
+      sms_index: '{{states.sensor.hilink_sms_list.attributes["Index"]}}'
+  mode: single

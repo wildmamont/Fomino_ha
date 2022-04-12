@@ -7,11 +7,75 @@ tts:
   - platform: google_translate
 
 automation: !include automations.yaml
-script: !include scripts.yaml
+
+logger: !include logger.yaml
+
 scene: !include scenes.yaml
+script: !include scripts.yaml
+sensor: !include sensor.yaml
+utility_meter: !include utility_meter.yaml
+
+homeassistant:
+  customize: !include customize.yaml
+  allowlist_external_dirs:
+    - /config/sensors
+    - /config/hilink
+
+
+#telegram_bot:
+#  - platform: polling
+#    api_key: !secret telegram_bot_api_key
+#    allowed_chat_ids:
+#      - !secret telegram_bot_allowed_chat_id1
+#      - !secret telegram_bot_allowed_chat_id2
+#      - !secret telegram_bot_allowed_chat_id3
+#      - !secret telegram_bot_allowed_chat_id4
+#      - !secret telegram_bot_allowed_chat_id5
+
+#notify:
+#  - name: WildMamont
+#    platform: telegram
+#    chat_id: !secret telegram_bot_allowed_chat_id1
+
+
+climate:
+  - platform: generic_thermostat
+    name: Cellar
+    heater:  switch.tasmota
+    target_sensor: sensor.tasmota_si7021_temperature
+    max_temp: 25
+    min_temp: 0
 
 
 shell_command:
 #  get_temperature_vichnya: /config/scripts/vishnya.sh
 #  get_temperature_fomino: /config/scripts/fomino.sh
   get_boa_snapshot: /config/scripts/get_boa_snapshot.sh
+  get_vstarcam_snapshot: /config/scripts/get_vstarcam_snapshot.sh  
+  midday_photo: '/config/scripts/midday_photo.sh  {{ bot_token }} {{ chat_id }}'
+
+rest_command:
+  sms_mark_read:
+    url: http://172.18.0.2:8080/hilink/api/sms/set-read
+    method: POST
+    headers:
+      accept: 'application/xml'
+    payload: '<?xml version="1.0" encoding="UTF-8"?><request><Index>{{ sms_index  }}</Index></request>'
+    content_type:  'application/xml; charset=utf-8'
+
+  telegram_send_message:
+    url: !secret telegram_bot_send_message
+    method: POST
+    payload: 'chat_id={{ chat_id }}&text=Новое сообщение({{ states.sensor.hilink_sms_list.attributes["Index"] }}) От:{{ states.sensor.hilink_sms_list.attributes["Phone"] }}, Дата:{{ states.sensor.hilink_sms_list.attributes["Date"] }}, Содержание: {{ states.sensor.hilink_sms_list.attributes["Content"] }}'
+    verify_ssl: false
+    headers:
+      Accept: '*/*'
+      Content-Type: 'application/x-www-form-urlencoded'
+  telegram_midday_message:
+    url: !secret telegram_bot_send_message
+    method: POST
+    payload: 'chat_id={{ chat_id }}&photo=@/config/www/vstarcam_snapshot.jpg'
+    verify_ssl: false
+    headers:
+      Accept: '*/*'
+      Content-Type: 'application/x-www-form-urlencoded'

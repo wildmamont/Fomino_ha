@@ -1,5 +1,5 @@
 #!/bin/bash
-curl -s 'http://admin:admin@192.168.20.110/jpgimage/1/image.jpg' -o /config/www/bao_snapshot.jpg 
+curl -s 'http://admin:admin@192.168.20.110/jpgimage/1/image.jpg' -o /config/www/boa_snapshot.jpg 
 RETVAL=$?
 if [ $RETVAL -eq 52 ] 
    then

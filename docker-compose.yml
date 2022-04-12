@@ -9,7 +9,7 @@ services:
       - TZ=Europe/Moscow
     restart: unless-stopped
     privileged: true
-    network_mode: host
+    network_mode: "host"
 
   portainer:
     container_name: portainer
@@ -20,6 +20,8 @@ services:
       - /home/homeassistant/portainer:/data
       - /var/run/docker.sock:/var/run/docker.sock
     network_mode: "host"
+    environment:
+      - TZ=Europe/Moscow
 
   eclipse-mosquitto:
     container_name: mosquitto 
@@ -34,3 +36,17 @@ services:
       - 9001:9001
     environment:
       - TZ=Europe/Moscow
+
+  openresty:
+    container_name: nginx
+    image: "openresty/openresty:1.19.9.1-10-bullseye"
+    volumes:
+      - /home/homeassistant/nginx/html:/var/www/html
+      - /home/homeassistant/nginx/logs:/var/log/nginx
+      - /home/homeassistant/nginx/conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+    environment:
+      - TZ=Europe/Moscow
+    networks:
+      homeassistant_default:
+        aliases:
+          - hilink
