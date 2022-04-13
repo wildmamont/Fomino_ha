@@ -1,4 +1,4 @@
-
+## INCLUDE THIS FILES
 !*.yaml
 !.gitignore
 !*.md
@@ -6,7 +6,9 @@
 !.storage/input_datetime
 !.storage/input_number
 !.storage/input_select
+!.storage/lovelace_resources
 
+## EXCLUDE 
 # Ignore folders.
 .storage
 .cloud
@@ -25,7 +27,6 @@ set_vishnya_llt.sh
 *_snapshot.jpg
 vstarcam_snapshot.jpg
 video-livestream.h264
-boa_snapshot.jpg
 
 sensors
 
