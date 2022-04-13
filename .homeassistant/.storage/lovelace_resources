@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "key": "lovelace_resources",
+    "data": {
+        "items": [
+            {
+                "url": "/local/module/fold-entity-row.js",
+                "type": "module",
+                "id": "5dc53338e5814fd896118852befd80b2"
+            }
+        ]
+    }
+}
