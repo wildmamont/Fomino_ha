@@ -13,6 +13,39 @@
     state_topic: "tele/tasmota_4FA414/SENSOR"
     unit_of_measurement: '°C'
     value_template: "{{ value_json.SI7021.DewPoint }}"
+  - platform: mqtt
+    name: "28_0000055C50E0_temperature"
+    state_topic: "tele/tasmota_95F7D3/SENSOR"
+    unit_of_measurement: "°C"
+    value_template: "{{value_json['DS18B20-1'].Temperature}}"
+    availability_topic: "tele/tasmota_95F7D3/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    json_attributes_topic: "tele/tasmota_95F7D3/SENSOR"
+    json_attributes_template: ">-
+      {%- set sourceid = '0000055C50E0' -%}
+      {%- for tsensor in value_json  -%}
+        {%- if value_json[tsensor].Id == sourceid -%} {{value_json[tsensor].Temperature}}
+        {%- endif -%}
+      {%- endfor %}"
+    device_class: temperature
+  - platform: mqtt
+    name: "28_3C01B55640A2_temperature"
+    state_topic: "tele/tasmota_95F7D3/SENSOR"
+    unit_of_measurement: "°C"
+    value_template: "{{value_json['DS18B20-2'].Temperature}}"
+    availability_topic: "tele/tasmota_95F7D3/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    json_attributes_topic: "tele/tasmota_95F7D3/SENSOR"
+    json_attributes_template: ">-
+      {%- set sourceid = '3C01B55640A2' -%}
+      {%- for tsensor in value_json  -%}
+        {%- if value_json[tsensor].Id == sourceid -%} {{value_json[tsensor].Temperature}}
+        {%- endif -%}
+      {%- endfor %}"
+    device_class: temperature
+  
 
 
 # Hilink
@@ -122,3 +155,22 @@
         friendly_name: "Модем: Статус сообщения"
         value_template: "{{ state_attr('sensor.hilink_sms_list', 'Smstat')  }}"
         unit_of_measurement: "num"
+
+# water level
+  - platform: mqtt      
+    name: "wemos_97FD7D_sensor1"      
+    state_topic: "tele/tasmota_97FD7D/SENSOR"      
+    value_template: "{{value_json.Switch1}}"
+    availability_topic: "tele/tasmota_97FD7D/LWT"      
+    qos: 1      
+    payload_available: "Online"      
+    payload_not_available: "Offline"      
+  - platform: mqtt      
+    name: "wemos_97FD7D_sensor2"     
+    state_topic: "tele/tasmota_97FD7D/SENSOR"      
+    value_template: "{{value_json.Switch2}}"
+    availability_topic: "tele/tasmota_97FD7D/LWT"      
+    qos: 1      
+    payload_available: "Online"      
+    payload_not_available: "Offline"      
+

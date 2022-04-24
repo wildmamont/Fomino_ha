@@ -13,6 +13,7 @@ logger: !include logger.yaml
 scene: !include scenes.yaml
 script: !include scripts.yaml
 sensor: !include sensor.yaml
+switch: !include switch.yaml
 utility_meter: !include utility_meter.yaml
 
 homeassistant:
