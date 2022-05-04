@@ -11,13 +11,6 @@
                     "title": "Home",
                     "cards": [
                         {
-                            "type": "entities",
-                            "entities": [
-                                "binary_sensor.omni_kn_1410_online"
-                            ],
-                            "title": "\u0412\u0435\u0440\u0430\u043d\u0434\u0430"
-                        },
-                        {
                             "type": "grid",
                             "square": true,
                             "columns": 3,
@@ -48,36 +41,6 @@
                         {
                             "type": "entities",
                             "entities": [
-                                "binary_sensor.keenetic_gateway_wan_status"
-                            ],
-                            "title": "Binary sensor"
-                        },
-                        {
-                            "type": "grid",
-                            "square": false,
-                            "columns": 1,
-                            "cards": [
-                                {
-                                    "type": "picture-entity",
-                                    "entity": "camera.boa_vision_mainstream"
-                                },
-                                {
-                                    "type": "picture-entity",
-                                    "entity": "camera.192_168_20_110_554_1_h264major_multicast"
-                                },
-                                {
-                                    "type": "picture-entity",
-                                    "entity": "camera.vstarcam"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "thermostat",
-                            "entity": "climate.cellar"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
                                 "input_boolean.cellar_day_night_automation",
                                 "input_datetime.cellar_day_on_time",
                                 "input_number.cellar_daytime_temperature",
@@ -98,60 +61,32 @@
                         {
                             "type": "entities",
                             "entities": [
-                                "sensor.28_0000055c50e0_temperature",
-                                "sensor.28_3c01b55640a2_temperature",
-                                "sensor.keenetic_gateway_b_received",
-                                "sensor.keenetic_gateway_b_sent",
-                                "sensor.keenetic_gateway_external_ip",
-                                "sensor.keenetic_gateway_kib_s_received",
-                                "sensor.keenetic_gateway_kib_s_sent",
-                                "sensor.keenetic_gateway_packets_received",
-                                "sensor.keenetic_gateway_packets_sent",
-                                "sensor.keenetic_gateway_packets_s_received",
-                                "sensor.keenetic_gateway_packets_s_sent",
-                                "sensor.keenetic_gateway_wan_status",
-                                "sensor.sonoff_th2_mqtt_dewpoint",
-                                "sensor.sonoff_th2_mqtt_humidity",
-                                "sensor.sonoff_th2_mqtt_temperature",
-                                "sensor.tasmota_ds18b20_1_id",
-                                "sensor.tasmota_ds18b20_1_temperature",
-                                "sensor.tasmota_ds18b20_2_id",
-                                "sensor.tasmota_ds18b20_2_temperature",
-                                "sensor.cellar_daily_offpeak",
-                                "sensor.cellar_daily_peak",
-                                "sensor.cellar_monthly_offpeak",
-                                "sensor.cellar_monthly_peak",
-                                "sensor.hilink_month_statistics",
-                                "sensor.hilink_signal",
-                                "sensor.hilink_sms_count",
-                                "sensor.hilink_sms_list",
-                                "sensor.wemos_97fd7d_sensor1",
-                                "sensor.wemos_97fd7d_sensor2",
-                                "sensor.hilink_sms_unread",
-                                "sensor.hilink_sms_inbox",
-                                "sensor.hilink_month_duration",
-                                "sensor.hilink_month_lastcleartime",
-                                "sensor.hilink_month_upload",
-                                "sensor.hilink_month_transfered",
-                                "sensor.hilink_month_download",
-                                "sensor.hilink_sms_smstat"
+                                {
+                                    "entity": "sensor.cellar_monthly_offpeak"
+                                },
+                                {
+                                    "entity": "sensor.cellar_monthly_peak"
+                                },
+                                {
+                                    "entity": "sensor.wemos_97fd7d_sensor1"
+                                },
+                                {
+                                    "entity": "sensor.wemos_97fd7d_sensor2"
+                                },
+                                {
+                                    "entity": "timer.water_pump_timer"
+                                }
                             ],
                             "title": "Sensor"
                         },
                         {
                             "type": "entities",
                             "entities": [
-                                "switch.sonoff_th2_4fa414"
+                                {
+                                    "entity": "switch.sonoff_mini_tasmota_fbf89f"
+                                }
                             ],
                             "title": "Switch"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                "utility_meter.cellar_daily",
-                                "utility_meter.cellar_monthly"
-                            ],
-                            "title": "Utility Meter"
                         }
                     ]
                 }

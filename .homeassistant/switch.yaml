@@ -12,3 +12,16 @@
     state_on: "ON"      
     state_off: "OFF"      
     retain: true
+  - platform: mqtt
+    name: "sonoff_mini_tasmota_FBF89F"
+    state_topic: "stat/tasmota_FBF89F/POWER"      
+    command_topic: "cmnd/tasmota_FBF89F/POWER"
+    availability_topic: "tele/tasmota_FBF89F/LWT"      
+    qos: 1      
+    payload_on: "ON"      
+    payload_off: "OFF"      
+    payload_available: "Online"      
+    payload_not_available: "Offline"      
+    state_on: "ON"      
+    state_off: "OFF"      
+    retain: true

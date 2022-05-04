@@ -6,10 +6,6 @@
     minutes: /15
   condition: []
   action:
-#  - service: shell_command.get_temperature_vichnya
-#    data: {}
-#  - service: shell_command.get_temperature_fomino
-#    data: {}
   - service: shell_command.get_boa_snapshot
     data: {}
   - service: shell_command.get_vstarcam_snapshot
@@ -64,4 +60,72 @@
   action:
   - service: script.public_sms
     data: {}
+  mode: single
+- id: '1651393618691'
+  alias: Start water pump timer
+  description: Запускаем таймер работы при включении насоса d
+  trigger:
+  - platform: state
+    entity_id: switch.sonoff_mini_tasmota_fbf89f
+    from: 'off'
+    to: 'on'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+  condition: []
+  action:
+  - service: timer.start
+    data: {}
+    target:
+      entity_id: timer.water_pump_timer
+  mode: single
+- id: '1651394124147'
+  alias: cancel water pump timer
+  description: Останавливаем таймер если мы насос выключили
+  trigger:
+  - platform: state
+    entity_id: switch.sonoff_mini_tasmota_fbf89f
+    from: 'on'
+    to: 'off'
+  condition: []
+  action:
+  - service: timer.cancel
+    data: {}
+    target:
+      entity_id: timer.water_pump_timer
+  mode: single
+- id: '1651394293751'
+  alias: switch water pump on timer
+  description: Выключаем насос по истечению времени таймера
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.water_pump_timer
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.sonoff_mini_tasmota_fbf89f
+  mode: single
+- id: '1651394559036'
+  alias: high level stop
+  description: Останавливаем насос при высоком уровне воды.
+  trigger:
+  - platform: state
+    entity_id: sensor.wemos_97fd7d_sensor1
+    from: 'on'
+    to: 'off'
+  - platform: state
+    entity_id: sensor.wemos_97fd7d_sensor1
+    from: 'ON'
+    to: 'OFF'
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.sonoff_mini_tasmota_fbf89f
   mode: single

@@ -1,0 +1,3 @@
+# Не трогать test таймер
+water_pump_timer:
+  duration: '00:20:00'
