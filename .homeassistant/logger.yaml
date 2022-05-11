@@ -3,3 +3,4 @@
     custom_components.sonoff: info
     homeassistant.components.mqtt: error
     homeassistant.components.file: error
+    homeassistant.components.rest: debug

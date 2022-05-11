@@ -2,7 +2,7 @@ version: '3'
 services:
   homeassistant:
     container_name: homeassistant
-    image: "homeassistant/raspberrypi3-homeassistant:2022.4.0"
+    image: "homeassistant/raspberrypi3-homeassistant:2022.5.0"
     volumes:
       - /home/homeassistant/.homeassistant:/config
     environment:
@@ -10,6 +10,8 @@ services:
     restart: unless-stopped
     privileged: true
     network_mode: "host"
+    ports:
+      - "8123:8123"
 
   portainer:
     container_name: portainer
@@ -20,6 +22,7 @@ services:
       - /home/homeassistant/portainer:/data
       - /var/run/docker.sock:/var/run/docker.sock
     network_mode: "host"
+    restart: unless-stopped
     environment:
       - TZ=Europe/Moscow
 
@@ -31,6 +34,7 @@ services:
       - /home/homeassistant/mosquitto/data:/mosquitto/data
       - /home/homeassistant/mosquitto/log:/mosquitto/log 
     network_mode: "host"
+    restart: unless-stopped
     ports:
       - 1883:1883
       - 9001:9001
@@ -46,7 +50,26 @@ services:
       - /home/homeassistant/nginx/conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
     environment:
       - TZ=Europe/Moscow
-    networks:
-      homeassistant_default:
-        aliases:
-          - hilink
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    network_mode: "host"
+#    networks:
+#      homeassistant:
+#        ipv4_address: 172.22.0.4
+#        aliases:
+#          - hilink
+
+#networks:
+#  default:
+#    driver: bridge
+#    ipam:
+#      driver: default
+#      config:
+#        - subnet: 172.18.0.0/16
+#  homeassistant:
+#    driver: bridge
+#    ipam:
+#      driver: default
+#      config:
+#        - subnet: 172.22.0.0/16

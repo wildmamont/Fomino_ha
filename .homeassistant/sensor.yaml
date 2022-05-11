@@ -51,7 +51,7 @@
 # Hilink
   - platform: rest
     name: hilink_signal
-    resource: http://172.18.0.2:8080/hilink/api/device/signal
+    resource: http://localhost:8080/hilink/api/device/signal
     json_attributes_path: "$.response"
     scan_interval: 185
     value_template: 'OK'
@@ -65,7 +65,7 @@
 
   - platform: rest
     name: hilink_sms_count
-    resource: http://172.18.0.2:8080/hilink/api/sms/sms-count
+    resource: http://localhost:8080/hilink/api/sms/sms-count
     json_attributes_path: "$.response"
     scan_interval: 181
     value_template: 'OK'
@@ -89,7 +89,7 @@
 
   - platform: rest
     name: hilink_month_statistics
-    resource: http://172.18.0.2:8080/hilink/api/monitoring/month_statistics
+    resource: http://localhost:8080/hilink/api/monitoring/month_statistics
     json_attributes_path: "$.response"
     scan_interval: 182
     value_template: 'OK'
@@ -136,7 +136,7 @@
 
   - platform: rest
     name: hilink_sms_list
-    resource: http://172.18.0.2:8080/hilink/api/sms/sms-list
+    resource: http://localhost:8080/hilink/api/sms/sms-list
     json_attributes_path: "$.response.Messages.Message"
     scan_interval: 184
     method: POST
@@ -174,3 +174,8 @@
     payload_available: "Online"      
     payload_not_available: "Offline"      
 
+  - platform: systemmonitor
+    resources:
+      - type: memory_free
+      - type: swap_use
+ 
