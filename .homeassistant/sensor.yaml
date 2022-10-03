@@ -29,6 +29,17 @@
         {%- endif -%}
       {%- endfor %}"
     device_class: temperature
+  - platform: mqtt ## TH16_2
+    name: "SonOff_Th1_Mqtt_Temperature"
+    state_topic: "ESP_Easy/DHT-14/Temperature"
+    unit_of_measurement: '°C'
+#    value_template: "{{ value_json.SI7021.Temperature }}"
+  - platform: mqtt
+    name: "SonOff_Th1_Mqtt_Humidity"
+    state_topic: "ESP_Easy/DHT-14/Humidity"
+    unit_of_measurement: '%'
+#    value_template: "{{ value_json.SI7021.Humidity }}"
+
   - platform: mqtt
     name: "28_3C01B55640A2_temperature"
     state_topic: "tele/tasmota_95F7D3/SENSOR"

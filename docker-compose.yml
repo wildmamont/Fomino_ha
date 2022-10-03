@@ -2,7 +2,7 @@ version: '3'
 services:
   homeassistant:
     container_name: homeassistant
-    image: "homeassistant/raspberrypi3-homeassistant:2022.5.0"
+    image: "homeassistant/raspberrypi3-homeassistant:2022.5.2"
     volumes:
       - /home/homeassistant/.homeassistant:/config
     environment:

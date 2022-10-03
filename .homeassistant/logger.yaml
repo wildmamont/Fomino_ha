@@ -1,6 +1,6 @@
   default: info
   logs:
-    custom_components.sonoff: info
-    homeassistant.components.mqtt: error
+    homeassistant.components.mqtt: DEBUG
     homeassistant.components.file: error
-    homeassistant.components.rest: debug
+    homeassistant.components.rest: error
+    homeassistant.components.device_tracker: debug
