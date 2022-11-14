@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace_resources",
     "data": {
         "items": [
@@ -7,6 +8,21 @@
                 "url": "/local/module/fold-entity-row.js",
                 "type": "module",
                 "id": "5dc53338e5814fd896118852befd80b2"
+            },
+            {
+                "url": "/local/module/auto-entities.js",
+                "type": "module",
+                "id": "6a0c400c35a64572b670cd7361f6c1f1"
+            },
+            {
+                "url": "/local/module/layout-card.js",
+                "type": "module",
+                "id": "9b58eb0765aa4774abb5461536c8de4e"
+            },
+            {
+                "url": "/local/module/slider-entity-row.js",
+                "type": "module",
+                "id": "f40f16920d754f1e9a814bdecbc90c99"
             }
         ]
     }

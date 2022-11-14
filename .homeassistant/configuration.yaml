@@ -44,8 +44,8 @@ homeassistant:
 climate:
   - platform: generic_thermostat
     name: Cellar
-    heater:  switch.tasmota
-    target_sensor: sensor.tasmota_si7021_temperature
+    heater:  switch.SonOff_Th1_Mqtt
+    target_sensor: sensor.SonOff_Th1_Mqtt_Temperature
     max_temp: 25
     min_temp: 0
 
