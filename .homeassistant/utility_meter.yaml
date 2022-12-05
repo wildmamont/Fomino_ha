@@ -1,12 +1,12 @@
   cellar_daily:
-    source:  sensor.cellar_wattage
+    source:  switch.SonOff_Th1_Mqtt
     cycle: daily
     tariffs:
       - peak
       - offpeak
 
   cellar_monthly:
-    source:  sensor.cellar_wattage
+    source:  switch.SonOff_Th1_Mqtt
     cycle: monthly
     tariffs:
       - peak

@@ -1,6 +1,6 @@
   default: info
   logs:
-    homeassistant.components.mqtt: error
+    homeassistant.components.mqtt: debug
     homeassistant.components.file: error
     homeassistant.components.rest: error
     homeassistant.components.device_tracker: debug

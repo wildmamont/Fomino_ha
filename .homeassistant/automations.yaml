@@ -129,3 +129,48 @@
     target:
       entity_id: switch.sonoff_mini_tasmota_fbf89f
   mode: single
+- id: '1668460397839'
+  alias: Погреб выключение автоматизации
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - switch.sonoff_th1_mqtt
+    to: 'off'
+  condition: []
+  action:
+  - service: frontend.set_theme
+    data: {}
+  mode: single
+- id: '1670173354973'
+  alias: Включение дневного режима
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:00:00
+  condition: []
+  action:
+  - service: utility_meter.select_tariff
+    data:
+      tariff: peak
+    target:
+      entity_id:
+      - utility_meter.cellar_daily
+      - utility_meter.cellar_monthly
+  mode: single
+- id: '1670173456250'
+  alias: Включение ночного режима
+  description: ''
+  trigger:
+  - platform: time
+    at: '23:00:00'
+  condition: []
+  action:
+  - service: utility_meter.select_tariff
+    data:
+      tariff: offpeak
+    target:
+      entity_id:
+      - utility_meter.cellar_daily
+      - utility_meter.cellar_monthly
+  mode: single
