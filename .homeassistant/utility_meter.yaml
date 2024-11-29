@@ -4,6 +4,16 @@
     tariffs:
       - peak
       - offpeak
+  cellar_daily_peak:
+    source:  switch.SonOff_Th1_Mqtt
+    name: Подвал дневной (день)
+    cycle: daily
+
+  cellar_daily_offpeak:
+    source:  switch.SonOff_Th1_Mqtt
+    name: Подвал дневной (ночь)
+    cycle: daily
+
 
   cellar_monthly:
     source:  switch.SonOff_Th1_Mqtt
@@ -11,3 +21,12 @@
     tariffs:
       - peak
       - offpeak
+
+  cellar_monthly_peak:
+    source:  switch.SonOff_Th1_Mqtt
+    name: Подвал месячный (день)
+    cycle: monthly
+  cellar_monthly_offpeak:
+    source:  switch.SonOff_Th1_Mqtt
+    name: Подвал месячный (ночь)
+    cycle: monthly

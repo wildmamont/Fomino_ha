@@ -22,3 +22,36 @@ public_sms:
     data:
       sms_index: '{{states.sensor.hilink_sms_list.attributes["Index"]}}'
   mode: single
+'1700810171359':
+  alias: Камера на Калитку
+  sequence:
+  - service: onvif.ptz
+    data:
+      continuous_duration: 0.5
+      preset: '3'
+      move_mode: GotoPreset
+    target:
+      device_id: 68323178e3ce7561b8f44acd4dcca299
+  mode: single
+'1700810375361':
+  alias: Камера на Крыльцо
+  sequence:
+  - service: onvif.ptz
+    data:
+      continuous_duration: 0.5
+      preset: '2'
+      move_mode: GotoPreset
+    target:
+      device_id: 68323178e3ce7561b8f44acd4dcca299
+  mode: single
+'1700810450850':
+  alias: Камера на реку
+  sequence:
+  - service: onvif.ptz
+    data:
+      preset: '1'
+      continuous_duration: 0.5
+      move_mode: GotoPreset
+    target:
+      device_id: 68323178e3ce7561b8f44acd4dcca299
+  mode: single

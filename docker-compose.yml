@@ -2,7 +2,7 @@ version: '3'
 services:
   homeassistant:
     container_name: homeassistant
-    image: "homeassistant/raspberrypi3-homeassistant:2022.5.2"
+    image: "ghcr.io/home-assistant/home-assistant:stable"
     volumes:
       - /home/homeassistant/.homeassistant:/config
     environment:
@@ -10,8 +10,6 @@ services:
     restart: unless-stopped
     privileged: true
     network_mode: "host"
-    ports:
-      - "8123:8123"
 
   portainer:
     container_name: portainer

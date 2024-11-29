@@ -147,30 +147,66 @@
   description: ''
   trigger:
   - platform: time
-    at: 07:00:00
+    at: input_datetime.cellar_day_on_time
   condition: []
   action:
-  - service: utility_meter.select_tariff
+  - service: select.select_option
     data:
-      tariff: peak
+      option: peak
     target:
       entity_id:
-      - utility_meter.cellar_daily
-      - utility_meter.cellar_monthly
+      - select.cellar_daily
+      - select.cellar_monthly
   mode: single
 - id: '1670173456250'
   alias: Включение ночного режима
   description: ''
   trigger:
   - platform: time
-    at: '23:00:00'
+    at: input_datetime.cellar_night_on_time
   condition: []
   action:
-  - service: utility_meter.select_tariff
+  - service: select.select_option
     data:
-      tariff: offpeak
+      option: offpeak
     target:
       entity_id:
-      - utility_meter.cellar_daily
-      - utility_meter.cellar_monthly
+      - select.cellar_daily
+      - select.cellar_monthly
+  mode: single
+- id: '1700840243315'
+  alias: Переключить на реку
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.river
+  condition: []
+  action:
+  - service: script.1700810450850
+    data: {}
+  mode: single
+- id: '1700840512678'
+  alias: Ориентировать камеру на веранду
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.door
+  condition: []
+  action:
+  - service: script.1700810375361
+    data: {}
+  mode: single
+- id: '1700840618216'
+  alias: Ориентировать камеру на калитку
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.gate
+  condition: []
+  action:
+  - service: script.1700810171359
+    data: {}
   mode: single

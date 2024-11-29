@@ -1,0 +1,219 @@
+title: Home Assistant
+views:
+  - path: default_view
+    title: Home
+    cards:
+      - type: grid
+        square: true
+        columns: 3
+        cards:
+          - type: picture-entity
+            entity: person.dmitriy
+            aspect_ratio: '1'
+            show_name: false
+            image: /api/image/serve/f5d47f49c1ec10b9c96b710e26cf58b8/512x512
+          - type: picture-entity
+            entity: person.yakov
+            aspect_ratio: '1'
+            show_name: false
+            image: /api/image/serve/39f75d7f7509b8eb608e7cbb84ff7b18/512x512
+          - type: picture-entity
+            entity: person.german
+            aspect_ratio: '1'
+            show_name: false
+            image: >-
+              data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 50 50' width='50' height='50'
+              style='background-color:%23b3e5fC'%3E%3Cg%3E%3Ctext
+              font-family='roboto' x='50%25' y='50%25' text-anchor='middle'
+              stroke='%23212121' font-size='1.3em'
+              dy='.3em'%3EG%3C/text%3E%3C/g%3E%3C/svg%3E
+      - type: entities
+        entities:
+          - entity: switch.tasmota_e88f28_switch
+            name: обогреватель в комнате
+          - entity: switch.sonoff_mini_tasmota_fbf89f
+            name: Выключатель насоса
+          - entity: switch.sonoff_th1_mqtt
+            name: Выключатель обогревателя погреба
+          - entity: switch.sonoff_th2_4fa414
+            name: обогреватель в комнате (старый)
+        title: Выключатели
+      - type: entities
+        entities:
+          - binary_sensor.keenetic_gateway_wan_status
+        title: Бинарный сенсор
+      - type: grid
+        square: false
+        columns: 1
+        cards:
+          - show_state: true
+            show_name: true
+            camera_view: auto
+            type: picture-entity
+            entity: camera.boa_vision_mainstream
+            tap_action:
+              action: url
+              url_path: http://192.168.20.44:8123/local/boa_snapshot.jpg
+          - show_state: true
+            show_name: true
+            camera_view: auto
+            type: picture-entity
+            entity: camera.vstarcam
+            tap_action:
+              action: url
+              url_path: http://192.168.20.44:8123/local/vstarcam_snapshot.jpg
+      - type: entities
+        entities:
+          - binary_sensor.omni_kn_1410_online
+        title: Веранда
+      - type: entities
+        entities:
+          - entity: timer.water_pump_timer
+        title: Вспомогательное
+      - type: thermostat
+        entity: climate.cellar
+        name: Погреб
+      - type: entities
+        entities:
+          - entity: sensor.28_0000055a67eb_temperature
+            name: Температура на улице
+          - entity: sensor.28_3c01b5562324_temperature
+            name: Температура на втором этаже
+          - entity: sensor.tasmota_e88f28_temperature
+            name: температура в комнате
+          - entity: sensor.sonoff_th1_mqtt_temperature
+            name: Погреб температура
+          - entity: sensor.sht30_14e21d_temperature
+            name: Веранда (температура)
+          - entity: sensor.tasmota_148a24_temperature
+            name: Температура в подвале СД
+        title: Сенсор
+      - type: entities
+        entities:
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Настройки погреба
+            name: Автоматизация подвала
+            entities:
+              - entity: input_boolean.cellar_day_night_automation
+                name: автоматизация погреба
+              - entity: input_datetime.cellar_day_on_time
+                name: Время переключения на дневной тариф
+              - entity: input_number.cellar_daytime_temperature
+                name: температура днем
+              - entity: input_datetime.cellar_night_on_time
+                name: Время переключения на ночной тариф
+              - entity: input_number.cellar_nighttime_temperature
+                name: температура ночью
+              - entity: input_select.cellar_ts_mode
+                name: Текущий Режим работы (ON- дневной)
+              - entity: counter.cellar_heater_counter
+      - type: entities
+        entities:
+          - entity: utility_meter.cellar_daily
+          - entity: utility_meter.cellar_monthly
+          - entity: sensor.cellar_daily_peak
+          - entity: sensor.cellar_daily_offpeak
+          - entity: sensor.podval_dnevnoi_den
+          - entity: sensor.podval_dnevnoi_noch
+          - entity: sensor.podval_mesiachnyi_den
+          - entity: sensor.podval_mesiachnyi_noch
+        title: Счетчик коммунальных услуг
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: All groups
+        filter:
+          include:
+            - domain: group
+              options:
+                type: custom:fold-entity-row
+      - type: entities
+        entities:
+          - entity: sensor.wemos_97fd7d_sensor1
+            name: Ниже верхнего уровня воды
+          - entity: sensor.wemos_97fd7d_sensor2
+            name: Выше нижнего уровня воды
+        title: Уровень  воды в баке
+      - type: history-graph
+        entities:
+          - entity: sensor.sht30_14e21d_humidity
+            name: Веранда
+          - entity: sensor.sonoff_th1_mqtt_humidity
+            name: Погреб
+          - entity: sensor.tasmota_e88f28_humidity
+            name: Комната
+          - entity: sensor.tasmota_148a24_humidity
+            name: Подвал Старого дома
+        hours_to_show: 120
+        title: Влажность
+      - type: history-graph
+        entities:
+          - entity: sensor.28_0000055a67eb_temperature
+            name: на улице
+          - entity: sensor.28_3c01b5562324_temperature
+            name: на втором этаже
+          - entity: sensor.sonoff_th1_mqtt_temperature
+            name: Погреб
+          - entity: sensor.sht30_14e21d_temperature
+            name: Веранда
+          - entity: sensor.tasmota_e88f28_temperature
+            name: Комната
+          - entity: sensor.tasmota_148a24_temperature
+            name: подвал СД
+        refresh_interval: 180
+        title: Температура в фомино
+        hours_to_show: 240
+  - theme: Backend-selected
+    title: Роутер и модем
+    path: ''
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.keenetic_gateway_b_received
+          - entity: sensor.keenetic_gateway_b_sent
+          - entity: sensor.keenetic_gateway_external_ip
+          - entity: sensor.keenetic_gateway_kib_s_received
+          - entity: sensor.keenetic_gateway_kib_s_sent
+          - entity: sensor.keenetic_gateway_packets_received
+          - entity: sensor.keenetic_gateway_packets_sent
+          - entity: sensor.keenetic_gateway_packets_s_received
+          - entity: sensor.keenetic_gateway_packets_s_sent
+          - entity: sensor.keenetic_gateway_wan_status
+          - entity: sensor.hilink_month_statistics
+          - entity: sensor.hilink_signal
+          - entity: sensor.hilink_sms_count
+          - entity: sensor.hilink_sms_list
+          - entity: sensor.hilink_sms_unread
+          - entity: sensor.hilink_sms_inbox
+          - entity: sensor.hilink_month_duration
+          - entity: sensor.hilink_month_lastcleartime
+          - entity: sensor.hilink_month_upload
+          - entity: sensor.hilink_month_transfered
+          - entity: sensor.hilink_month_download
+          - entity: sensor.hilink_sms_smstat
+        title: Сенсор
+      - camera_view: auto
+        type: picture-glance
+        title: Kitchen
+        image: https://demo.home-assistant.io/stub_config/kitchen.png
+        entities:
+          - entity: input_button.door
+            icon: mdi:pan-left
+            tap_action:
+              action: call-service
+              service: script.1700810375361
+          - entity: input_button.river
+            icon: mdi:pan-up
+            tap_action:
+              action: call-service
+              service: script.1700810450850
+          - entity: input_button.gate
+            icon: mdi:pan-right
+            tap_action:
+              action: call-service
+              service: script.1700810171359
+        camera_image: camera.boa_vision_mainstream

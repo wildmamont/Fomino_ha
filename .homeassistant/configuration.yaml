@@ -9,6 +9,10 @@ tts:
 automation: !include automations.yaml
 
 logger: !include logger.yaml
+lovelace:
+  mode: yaml
+
+mqtt:   !include mqtt.yaml
 
 scene: !include scenes.yaml
 script: !include scripts.yaml

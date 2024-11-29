@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "input_number",
     "data": {
         "items": [
@@ -20,6 +21,14 @@
                 "step": 1.0,
                 "mode": "slider",
                 "id": "cellar_nighttime_temperature"
+            },
+            {
+                "min": 1.0,
+                "max": 3.0,
+                "mode": "box",
+                "name": "boa_presest",
+                "step": 1.0,
+                "id": "boa_presest"
             }
         ]
     }

@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 2,
     "key": "input_select",
     "data": {
         "items": [
@@ -10,6 +11,15 @@
                     "Off"
                 ],
                 "id": "cellar_ts_mode"
+            },
+            {
+                "name": "boa_ptz_preset",
+                "icon": "mdi:camera-document",
+                "options": [
+                    "\u0420\u0435\u043a\u0430",
+                    "\u041a\u0440\u044b\u043b\u044c\u0446\u043e"
+                ],
+                "id": "boa_ptz_preset"
             }
         ]
     }

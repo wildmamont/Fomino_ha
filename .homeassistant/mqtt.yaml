@@ -1,0 +1,212 @@
+  sensor:
+    - name: "SonOff_Th2_Mqtt_Temperature"
+      state_topic: "tele/tasmota_D806CE/SENSOR"
+      unit_of_measurement: '°C'
+      value_template: "{{ value_json.SI7021.Temperature }}"
+    - name: "SonOff_Th2_Mqtt_Humidity"
+      state_topic: "tele/tasmota_D806CE/SENSOR"
+      unit_of_measurement: '%'
+      value_template: "{{ value_json.SI7021.Humidity }}"
+    - name: "SonOff_Th2_Mqtt_DewPoint"
+      state_topic: "tele/tasmota_D806CE/SENSOR"
+      unit_of_measurement: '°C'
+      value_template: "{{ value_json.SI7021.DewPoint }}"
+# Tasmota Elite
+    - name: "tasmota_e88f28_Temperature"
+      state_topic: "tele/tasmota_E88F28/SENSOR"
+      unit_of_measurement: '°C'
+      value_template: "{{ value_json.SI7021.Temperature }}"
+    - name: "tasmota_e88f28_Humidity"
+      state_topic: "tele/tasmota_E88F28/SENSOR"
+      unit_of_measurement: '%'
+      value_template: "{{ value_json.SI7021.Humidity }}"
+    - name: "tasmota_e88f28_DewPoint"
+      state_topic: "tele/tasmota_E88F28/SENSOR"
+      unit_of_measurement: '°C'
+      value_template: "{{ value_json.SI7021.DewPoint }}"
+
+    - name: "28_0000055C50E0_temperature"
+      state_topic: "tele/tasmota_95F7D3/SENSOR"
+      unit_of_measurement: "°C"
+      value_template: "{{value_json['DS18B20-1'].Temperature}}"
+      availability_topic: "tele/tasmota_95F7D3/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      json_attributes_topic: "tele/tasmota_95F7D3/SENSOR"
+      json_attributes_template: ">-
+        {%- set sourceid = '0000055C50E0' -%}
+        {%- for tsensor in value_json  -%}
+          {%- if value_json[tsensor].Id == sourceid -%} {{value_json[tsensor].Temperature}}
+          {%- endif -%}
+        {%- endfor %}"
+      device_class: temperature
+
+    - name: "SonOff_Th1_Mqtt_Temperature"
+      state_topic: "ESP_Easy/DHT-14/Temperature"
+      unit_of_measurement: '°C'
+#    value_template: "{{ value_json.SI7021.Temperature }}"
+    - name: "SonOff_Th1_Mqtt_Humidity"
+      state_topic: "ESP_Easy/DHT-14/Humidity"
+      unit_of_measurement: '%'
+#    value_template: "{{ value_json.SI7021.Humidity }}"
+
+
+    - name: "28_3C01B55640A2_temperature"
+      state_topic: "tele/tasmota_95F7D3/SENSOR"
+      unit_of_measurement: '°C'
+      value_template: "{{value_json['DS18B20-2'].Temperature}}"
+      availability_topic: "tele/tasmota_95F7D3/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      json_attributes_topic: "tele/tasmota_95F7D3/SENSOR"
+      json_attributes_template: ">-
+        {%- set sourceid = '3C01B55640A2' -%}
+        {%- for tsensor in value_json  -%}
+          {%- if value_json[tsensor].Id == sourceid -%} {{value_json[tsensor].Temperature}}
+          {%- endif -%}
+        {%- endfor %}"
+      device_class: temperature
+# Podval N D
+    - name: "tasmota_148a24_temperature"
+      state_topic: "tele/tasmota_148A24/SENSOR"
+      unit_of_measurement: "°C"
+      value_template: "{{value_json.SHT3X.Temperature}}"
+      availability_topic: "tele/tasmota_148A24/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      json_attributes_topic: "tele/tasmota_148A24/SENSOR"
+      device_class: temperature
+
+    - name: "tasmota_148a24_humidity"
+      state_topic: "tele/tasmota_148A24/SENSOR"
+      unit_of_measurement: "%"
+      value_template: "{{value_json.SHT3X.Humidity}}"
+      availability_topic: "tele/tasmota_148A24/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      device_class: humidity
+    
+    - name: "tasmota_148a24_dewpoint"
+      state_topic: "tele/tasmota_148A24/SENSOR"
+      unit_of_measurement: "°C"
+      value_template: "{{value_json.SHT3X.DewPoint}}"
+      availability_topic: "tele/tasmota_148A24/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      device_class: temperature
+
+# water level
+    - name: "wemos_97FD7D_sensor1"      
+      state_topic: "tele/tasmota_97FD7D/SENSOR"      
+      value_template: "{{value_json.Switch1}}"
+      availability_topic: "tele/tasmota_97FD7D/LWT"      
+      qos: 1      
+      payload_available: "Online"      
+      payload_not_available: "Offline"      
+    - name: "wemos_97FD7D_sensor2"     
+      state_topic: "tele/tasmota_97FD7D/SENSOR"      
+      value_template: "{{value_json.Switch2}}"
+      availability_topic: "tele/tasmota_97FD7D/LWT"      
+      qos: 1      
+      payload_available: "Online"      
+      payload_not_available: "Offline"      
+
+
+    - name: "sht30_14e21d_temperature"
+      state_topic: "tele/tasmota_14E21D/SENSOR"
+      unit_of_measurement: "°C"
+      value_template: "{{ value_json.SHT3X.Temperature }}"
+      availability_topic: "tele/tasmota_14E21D/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      json_attributes_topic: "tele/tasmota_14E21D/SENSOR"
+      device_class: temperature
+    - name: "sht30_14e21d_humidity"
+      state_topic: "tele/tasmota_14E21D/SENSOR"
+      value_template: "{{ value_json.SHT3X.Humidity }}"
+      availability_topic: "tele/tasmota_14E21D/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      json_attributes_topic: "tele/tasmota_14E21D/SENSOR"
+      unit_of_measurement: '%'
+      device_class: humidity
+    - name: "sht30_14e21d_dewpoint"
+      state_topic: "tele/tasmota_14E21D/SENSOR"
+      unit_of_measurement: "°C"
+      value_template: "{{ value_json.SHT3X.DewPoint }}"
+      availability_topic: "tele/tasmota_14E21D/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      json_attributes_topic: "tele/tasmota_14E21D/SENSOR"
+      device_class: temperature
+
+
+  switch:
+    #Sonoff v Komnate
+    - name: "SonOff_Th2_4FA414"      
+      state_topic: "stat/tasmota_D806CE/POWER"      
+      command_topic: "cmnd/tasmota_D806CE/POWER"
+      availability_topic: "tele/tasmota_D806CE/LWT"      
+      qos: 1      
+      payload_on: "ON"      
+      payload_off: "OFF"      
+      payload_available: "Online"      
+      payload_not_available: "Offline"      
+      state_on: "ON"      
+      state_off: "OFF"      
+      retain: true
+#Sonoff v Komnate
+    - name: "tasmota_e88f28_switch"      
+      state_topic: "stat/tasmota_E88F28/POWER"      
+      command_topic: "cmnd/tasmota_E88F28/POWER"
+      availability_topic: "tele/tasmota_E88F28/LWT"      
+      qos: 1      
+      payload_on: "ON"      
+      payload_off: "OFF"      
+      payload_available: "Online"      
+      payload_not_available: "Offline"      
+      state_on: "ON"      
+      state_off: "OFF"      
+      retain: true
+
+#Water Pump old
+#  - platform: mqtt
+#    name: "sonoff_mini_tasmota_FBF89F"
+#    state_topic: "stat/tasmota_FBF89F/POWER"      
+#    command_topic: "cmnd/tasmota_FBF89F/POWER"
+#    availability_topic: "tele/tasmota_FBF89F/LWT"      
+#    qos: 1      
+#    payload_on: "ON"      
+#    payload_off: "OFF"      
+#    payload_available: "Online"      
+#    payload_not_available: "Offline"      
+#    state_on: "ON"      
+#    state_off: "OFF"      
+#    retain: true
+#Water Pump new
+    - name: "sonoff_mini_tasmota_FBF89F"
+      state_topic: "stat/tasmota_FBF7D1/POWER"      
+      command_topic: "cmnd/tasmota_FBF7D1/POWER"
+      availability_topic: "tele/tasmota_FBF7D1/LWT"      
+      qos: 1      
+      payload_on: "ON"      
+      payload_off: "OFF"      
+      payload_available: "Online"      
+      payload_not_available: "Offline"      
+      state_on: "ON"      
+      state_off: "OFF"      
+      retain: true
+
+# Подвал
+    - name: "SonOff_Th1_Mqtt"      
+      state_topic: "ESP_Easy/Relay/State1"
+      command_topic: "ESP_Easy/cmd"
+      availability_topic: "ESP_Easy/lwt"
+      qos: 1      
+      payload_on: "GPIO,12,1"
+      payload_off: "GPIO,12,0"
+      payload_available: "alive"
+      payload_not_available: "died"
+      state_on: 1
+      state_off: 0
+      retain: true
