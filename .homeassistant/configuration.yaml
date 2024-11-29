@@ -11,6 +11,16 @@ automation: !include automations.yaml
 logger: !include logger.yaml
 lovelace:
   mode: yaml
+  # Include external resources only add when mode is yaml, otherwise manage in the resources in the dashboard configuration panel.
+  resources:
+    - url: /local/module/fold-entity-row.js
+      type: module
+    - url: /local/module/auto-entities.js
+      type: module
+    - url: /local/module/layout-card.js
+      type: module
+    - url: /local/module/slider-entity-row.js
+      type: module
 
 mqtt:   !include mqtt.yaml
 
