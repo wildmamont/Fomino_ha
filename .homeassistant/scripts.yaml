@@ -15,12 +15,12 @@ read_sms_mark:
 public_sms:
   alias: Public SMS
   sequence:
-  - service: rest_command.telegram_send_message
-    data:
+  - data:
       chat_id: 51527842
-  - service: rest_command.sms_mark_read
-    data:
+    action: rest_command.telegram_send_message
+  - data:
       sms_index: '{{states.sensor.hilink_sms_list.attributes["Index"]}}'
+    action: rest_command.sms_mark_read
   mode: single
 '1700810171359':
   alias: Камера на Калитку

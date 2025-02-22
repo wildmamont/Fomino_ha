@@ -25,6 +25,12 @@
       unit_of_measurement: '°C'
       value_template: "{{ value_json.SI7021.DewPoint }}"
 
+# 2 Этаж
+    - name: "28_0000055a67eb_temperature"
+      state_topic: "tele/tasmota_DF642D/SENSOR"
+      unit_of_measurement: '°C'
+      value_template: "{{ value_json.DS18B20.Temperature }}"
+
     - name: "28_0000055C50E0_temperature"
       state_topic: "tele/tasmota_95F7D3/SENSOR"
       unit_of_measurement: "°C"
@@ -41,13 +47,31 @@
         {%- endfor %}"
       device_class: temperature
 
+# Подвал датчики
     - name: "SonOff_Th1_Mqtt_Temperature"
-      state_topic: "ESP_Easy/DHT-14/Temperature"
+      state_topic: "tele/tasmota_4FA414/SENSOR"
       unit_of_measurement: '°C'
+      value_template: "{{ value_json.SI7021.Temperature }}"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      json_attributes_topic: "tele/tasmota_4FA414/SENSOR"
+
+    - name: "SonOff_Th1_Mqtt_Dewpoint"
+      state_topic: "tele/tasmota_4FA414/SENSOR"
+      unit_of_measurement: '°C'
+      value_template: "{{ value_json.SI7021.DewPoint }}"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      json_attributes_topic: "tele/tasmota_4FA414/SENSOR"
+
 #    value_template: "{{ value_json.SI7021.Temperature }}"
     - name: "SonOff_Th1_Mqtt_Humidity"
-      state_topic: "ESP_Easy/DHT-14/Humidity"
+      state_topic: "tele/tasmota_4FA414/SENSOR"
       unit_of_measurement: '%'
+      value_template: "{{ value_json.SI7021.Humidity }}"
+      payload_available: "Online"
+      payload_not_available: "Offline"
+      json_attributes_topic: "tele/tasmota_4FA414/SENSOR"
 #    value_template: "{{ value_json.SI7021.Humidity }}"
 
 
@@ -199,14 +223,15 @@
 
 # Подвал
     - name: "SonOff_Th1_Mqtt"      
-      state_topic: "ESP_Easy/Relay/State1"
-      command_topic: "ESP_Easy/cmd"
-      availability_topic: "ESP_Easy/lwt"
+      state_topic: "stat/tasmota_4FA414/RESULT"
+      command_topic: "cmnd/tasmota_4FA414/POWER"
+      availability_topic: "tele/tasmota_4FA414/LWT"      
+      value_template: "{{ value_json.POWER }}"
       qos: 1      
-      payload_on: "GPIO,12,1"
-      payload_off: "GPIO,12,0"
-      payload_available: "alive"
-      payload_not_available: "died"
-      state_on: 1
-      state_off: 0
+      payload_on: "ON"      
+      payload_off: "OFF"      
+      payload_available: "Online"      
+      payload_not_available: "Offline"      
+      state_on: "ON"      
+      state_off: "OFF"      
       retain: true

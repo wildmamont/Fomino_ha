@@ -43,26 +43,42 @@ views:
         entities:
           - binary_sensor.keenetic_gateway_wan_status
         title: Бинарный сенсор
-      - type: grid
-        square: false
-        columns: 1
+      - type: vertical-stack
         cards:
-          - show_state: true
-            show_name: true
-            camera_view: auto
-            type: picture-entity
-            entity: camera.boa_vision_mainstream
+          - camera_view: auto
+            type: picture-glance
+            title: Река
+            image: http://192.168.20.44:8123/local/boa_snapshot.jpg
+            entities:
+              - entity: input_button.door
+                icon: mdi:pan-left
+                tap_action:
+                  action: call-service
+                  service: script.1700810375361
+              - entity: input_button.river
+                icon: mdi:pan-up
+                tap_action:
+                  action: call-service
+                  service: script.1700810450850
+              - entity: input_button.gate
+                icon: mdi:pan-right
+                tap_action:
+                  action: call-service
+                  service: script.1700810171359
+            camera_image: camera.boa_vision_mainstream
             tap_action:
               action: url
               url_path: http://192.168.20.44:8123/local/boa_snapshot.jpg
-          - show_state: true
-            show_name: true
-            camera_view: auto
-            type: picture-entity
-            entity: camera.vstarcam
+          - camera_view: auto
+            type: picture-glance
+            title: Черноплодка
+            image: http://192.168.20.44:8123/local/vstarcam_snapshot.jpg
+            entities: []
+            camera_image: camera.vstarcam
             tap_action:
               action: url
               url_path: http://192.168.20.44:8123/local/vstarcam_snapshot.jpg
+        title: Камеры
       - type: entities
         entities:
           - binary_sensor.omni_kn_1410_online
@@ -78,8 +94,8 @@ views:
         entities:
           - entity: sensor.28_0000055a67eb_temperature
             name: Температура на улице
-          - entity: sensor.28_3c01b5562324_temperature
-            name: Температура на втором этаже
+#          - entity: sensor.28_3c01b5562324_temperature
+#            name: Температура на втором этаже
           - entity: sensor.tasmota_e88f28_temperature
             name: температура в комнате
           - entity: sensor.sonoff_th1_mqtt_temperature
