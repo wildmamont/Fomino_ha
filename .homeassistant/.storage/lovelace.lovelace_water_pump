@@ -1,98 +1,131 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "lovelace.lovelace_water_pump",
-    "data": {
-        "config": {
-            "title": "Home Assistant",
-            "views": [
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.lovelace_water_pump",
+  "data": {
+    "config": {
+      "title": "Home Assistant",
+      "views": [
+        {
+          "path": "default_view",
+          "title": "Home",
+          "cards": [
+            {
+              "type": "grid",
+              "square": true,
+              "columns": 3,
+              "cards": [
                 {
-                    "path": "default_view",
-                    "title": "Home",
-                    "cards": [
-                        {
-                            "type": "grid",
-                            "square": true,
-                            "columns": 3,
-                            "cards": [
-                                {
-                                    "type": "picture-entity",
-                                    "entity": "person.dmitriy",
-                                    "aspect_ratio": "1",
-                                    "show_name": false,
-                                    "image": "/api/image/serve/f5d47f49c1ec10b9c96b710e26cf58b8/512x512"
-                                },
-                                {
-                                    "type": "picture-entity",
-                                    "entity": "person.yakov",
-                                    "aspect_ratio": "1",
-                                    "show_name": false,
-                                    "image": "/api/image/serve/39f75d7f7509b8eb608e7cbb84ff7b18/512x512"
-                                },
-                                {
-                                    "type": "picture-entity",
-                                    "entity": "person.german",
-                                    "aspect_ratio": "1",
-                                    "show_name": false,
-                                    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50' width='50' height='50' style='background-color:%23b3e5fC'%3E%3Cg%3E%3Ctext font-family='roboto' x='50%25' y='50%25' text-anchor='middle' stroke='%23212121' font-size='1.3em' dy='.3em'%3EG%3C/text%3E%3C/g%3E%3C/svg%3E"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                "input_boolean.cellar_day_night_automation",
-                                "input_datetime.cellar_day_on_time",
-                                "input_number.cellar_daytime_temperature",
-                                "input_datetime.cellar_night_on_time",
-                                "input_number.cellar_nighttime_temperature",
-                                "input_select.cellar_ts_mode"
-                            ],
-                            "title": "Helpers"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                "select.cellar_daily",
-                                "select.cellar_monthly"
-                            ],
-                            "title": "Select"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.cellar_monthly_offpeak"
-                                },
-                                {
-                                    "entity": "sensor.cellar_monthly_peak"
-                                },
-                                {
-                                    "entity": "sensor.wemos_97fd7d_sensor1",
-                                    "name": "\u041d\u0438\u0436\u0435 \u0432\u0435\u0440\u0445\u043d\u0435\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f \u0432\u043e\u0434\u044b"
-                                },
-                                {
-                                    "entity": "sensor.wemos_97fd7d_sensor2",
-                                    "name": "\u0412\u044b\u0448\u0435 \u043d\u0438\u0436\u043d\u0435\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f \u0432\u043e\u0434\u044b"
-                                },
-                                {
-                                    "entity": "timer.water_pump_timer"
-                                }
-                            ],
-                            "title": "Sensor"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "switch.sonoff_mini_tasmota_fbf89f"
-                                }
-                            ],
-                            "title": "Switch"
-                        }
-                    ]
+                  "type": "picture-entity",
+                  "entity": "person.dmitriy",
+                  "aspect_ratio": "1",
+                  "show_name": false,
+                  "image": "/api/image/serve/f5d47f49c1ec10b9c96b710e26cf58b8/512x512"
+                },
+                {
+                  "type": "picture-entity",
+                  "entity": "person.yakov",
+                  "aspect_ratio": "1",
+                  "show_name": false,
+                  "image": "/api/image/serve/39f75d7f7509b8eb608e7cbb84ff7b18/512x512"
+                },
+                {
+                  "type": "picture-entity",
+                  "entity": "person.german",
+                  "aspect_ratio": "1",
+                  "show_name": false,
+                  "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50' width='50' height='50' style='background-color:%23b3e5fC'%3E%3Cg%3E%3Ctext font-family='roboto' x='50%25' y='50%25' text-anchor='middle' stroke='%23212121' font-size='1.3em' dy='.3em'%3EG%3C/text%3E%3C/g%3E%3C/svg%3E"
                 }
-            ]
+              ]
+            },
+            {
+              "type": "entities",
+              "entities": [
+                "input_boolean.cellar_day_night_automation",
+                "input_datetime.cellar_day_on_time",
+                "input_number.cellar_daytime_temperature",
+                "input_datetime.cellar_night_on_time",
+                "input_number.cellar_nighttime_temperature",
+                "input_select.cellar_ts_mode"
+              ],
+              "title": "Helpers"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                "select.cellar_daily",
+                "select.cellar_monthly"
+              ],
+              "title": "Select"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "sensor.cellar_monthly_offpeak"
+                },
+                {
+                  "entity": "sensor.cellar_monthly_peak"
+                },
+                {
+                  "entity": "sensor.wemos_97fd7d_sensor1",
+                  "name": "Ниже верхнего уровня воды"
+                },
+                {
+                  "entity": "sensor.wemos_97fd7d_sensor2",
+                  "name": "Выше нижнего уровня воды"
+                },
+                {
+                  "entity": "timer.water_pump_timer"
+                }
+              ],
+              "title": "Sensor"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "switch.sonoff_mini_tasmota_fbf89f"
+                }
+              ],
+              "title": "Switch"
+            },
+            {
+              "camera_view": "auto",
+              "type": "picture-glance",
+              "title": "Kitchen",
+              "image": "http://192.168.20.44:8123/local/boa_snapshot.jpg",
+              "entities": [
+                "sensor.sun_next_dawn",
+                "sensor.sun_next_dusk"
+              ],
+              "camera_image": "camera.boa_vision_mainstream",
+              "tap_action": {
+                "action": "navigate",
+                "navigation_path": ""
+              }
+            }
+          ]
+        },
+        {
+          "type": "sections",
+          "max_columns": 4,
+          "title": "11",
+          "path": "11",
+          "icon": "212",
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Новый раздел"
+                }
+              ]
+            }
+          ]
         }
+      ]
     }
+  }
 }
