@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "minor_version": 1,
+    "key": "input_button",
+    "data": {
+        "items": [
+            {
+                "name": "river",
+                "icon": "mdi:air-filter",
+                "id": "river"
+            },
+            {
+                "name": "door",
+                "id": "door"
+            },
+            {
+                "name": "gate",
+                "id": "gate"
+            }
+        ]
+    }
+}
