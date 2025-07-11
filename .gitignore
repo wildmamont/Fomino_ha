@@ -20,7 +20,8 @@ ip_bans.yaml
 secrets.yaml
 known_devices.yaml
 # SqLite-DB
-home-assistant_v2.db*
+.homeassistant/home-assistant_v2.d*
+.homeassistant/zigbee.d*
 home-assistant.log*
 set_fomino_llt.sh
 set_vishnya_llt.sh

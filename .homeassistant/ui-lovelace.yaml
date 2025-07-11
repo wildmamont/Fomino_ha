@@ -102,6 +102,8 @@ views:
             name: Погреб температура
           - entity: sensor.sht30_14e21d_temperature
             name: Веранда (температура)
+          - entity: sensor.28_3ce10457babb_temperature
+            name: Температура на бане
           - entity: sensor.tasmota_148a24_temperature
             name: Температура в подвале СД
         title: Сенсор
@@ -179,6 +181,8 @@ views:
             name: Комната
           - entity: sensor.tasmota_148a24_temperature
             name: подвал СД
+          - entity: sensor.28_3ce10457babb_temperature
+            name: Баня
         refresh_interval: 180
         title: Температура в фомино
         hours_to_show: 240
