@@ -119,7 +119,47 @@
                 "min",
                 "max"
               ],
-              "title": "Ffff"
+              "title": "датчик температуры в комнате"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "sensor.tze204_yvx5lh6k_ts0601_vlazhnost",
+                  "name": "Влажность"
+                },
+                {
+                  "entity": "sensor.tze204_yvx5lh6k_ts0601_kontsentratsiia_formaldegida",
+                  "name": "Концентрация формальдегида"
+                },
+                {
+                  "entity": "sensor.tze204_yvx5lh6k_ts0601_letuchie_organicheskie_veshchestva",
+                  "name": "Летучие органические вещества"
+                },
+                {
+                  "entity": "sensor.tze204_yvx5lh6k_ts0601_temperatura",
+                  "name": "Температура"
+                },
+                {
+                  "entity": "sensor.tze204_yvx5lh6k_ts0601_uglekislyi_gaz",
+                  "name": "Углекислый газ"
+                },
+                {
+                  "entity": "sensor.tze204_yvx5lh6k_ts0601_pm2_5",
+                  "name": "PM2.5"
+                }
+              ],
+              "title": "_TZE204_yvx5lh6k TS0601"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                "button.pushok_hardware_pok002_identifikatsiia",
+                "update.pushok_hardware_pok002_obnovlenie_proshivki",
+                "sensor.pushok_hardware_pok002_batareia",
+                "sensor.pushok_hardware_pok002_vlazhnost",
+                "sensor.pushok_hardware_pok002_temperatura"
+              ]
             }
           ]
         },

@@ -78,6 +78,16 @@ views:
             tap_action:
               action: url
               url_path: http://192.168.20.44:8123/local/vstarcam_snapshot.jpg
+          - camera_view: auto
+            type: picture-glance
+            title: Баня
+            image: http://192.168.20.44:8123/local/hik_snapshot.jpg
+            entities: []
+            camera_image: camera.hikvision_garden_mainstream
+            tap_action:
+              action: url
+              url_path: http://192.168.20.44:8123/local/hik_snapshot.jpg
+
         title: Камеры
       - type: entities
         entities:

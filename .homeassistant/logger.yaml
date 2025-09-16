@@ -4,3 +4,4 @@
     homeassistant.components.file: error
     homeassistant.components.rest: error
     homeassistant.components.device_tracker: error
+    homeassistant.components.automation: error
