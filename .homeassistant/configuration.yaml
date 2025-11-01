@@ -70,6 +70,7 @@ shell_command:
   get_boa_snapshot: /config/scripts/get_boa_snapshot.sh
   get_vstarcam_snapshot: /config/scripts/get_vstarcam_snapshot.sh  
   midday_photo: '/config/scripts/midday_photo.sh  {{ bot_token }} {{ chat_id }}'
+  sqlite_minus_85: /config/scripts/sqlite_minus_85.sh
 
 rest_command:
   sms_mark_read:

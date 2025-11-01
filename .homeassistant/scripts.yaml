@@ -55,3 +55,10 @@ public_sms:
     target:
       device_id: 68323178e3ce7561b8f44acd4dcca299
   mode: single
+sqlite_minus_85:
+  sequence:
+  - action: shell_command.sqlite_minus_85
+    metadata: {}
+    data: {}
+  alias: sqlite_minus_85
+  description: ''

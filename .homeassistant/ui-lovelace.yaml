@@ -177,25 +177,36 @@ views:
             name: Подвал Старого дома
         hours_to_show: 120
         title: Влажность
-      - type: history-graph
-        entities:
-          - entity: sensor.28_0000055a67eb_temperature
-            name: на улице
-          - entity: sensor.28_3c01b5562324_temperature
-            name: на втором этаже
-          - entity: sensor.sonoff_th1_mqtt_temperature
-            name: Погреб
-          - entity: sensor.sht30_14e21d_temperature
-            name: Веранда
-          - entity: sensor.tasmota_e88f28_temperature
-            name: Комната
-          - entity: sensor.tasmota_148a24_temperature
-            name: подвал СД
-          - entity: sensor.28_3ce10457babb_temperature
-            name: Баня
-        refresh_interval: 180
-        title: Температура в фомино
-        hours_to_show: 240
+      - type: vertical-stack
+        cards: 
+          - type: history-graph
+            entities:
+              - entity: sensor.28_0000055a67eb_temperature
+                name: на улице
+#              - entity: sensor.28_3c01b5562324_temperature
+#                name: на втором этаже
+              - entity: sensor.sonoff_th1_mqtt_temperature
+                name: Погреб
+              - entity: sensor.sht30_14e21d_temperature
+                name: Веранда
+              - entity: sensor.tasmota_e88f28_temperature
+                name: Комната
+              - entity: sensor.tasmota_148a24_temperature
+                name: подвал СД
+              - entity: sensor.28_3ce10457babb_temperature
+                name: Баня
+            refresh_interval: 180
+            title: Температура в фомино
+            hours_to_show: 240
+    badges:
+      - type: entity
+        entity: script.sqlite_minus_85
+        show_name: false
+        show_state: true
+        show_icon: true
+        name: поправить историю Температур
+        state_content: name
+
   - theme: Backend-selected
     title: Роутер и модем
     path: ''
@@ -247,3 +258,4 @@ views:
               action: call-service
               service: script.1700810171359
         camera_image: camera.boa_vision_mainstream
+
